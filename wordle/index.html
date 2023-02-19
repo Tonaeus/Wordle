@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Wordle</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <script src="./wordle.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Wordle</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <script src="./wordle.js"></script>
+        <nav class="nav">
+            <div class="left"></div>
+            <div class="center">
+                <p id="Title">Wordle</p>
+            </div>
+            <div class="right">
+                <label class="icon" id="mode">&#9681;</label>
+                <label class=" icon" id="hint">&#63;</label>
+                <label class="icon" id="info">&#9432;</label>
+            </div>
+        </nav>
+        <main>
+            <div id="playArea">
+                <div id="boardArea">
+                    <div id="region">
+                        <div id="board"></div>
+                    </div>
+                    <div id="btn">
+                        <label id="reset">
+                        <span>Start Over</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="instruction"> </div>
+        </main>
+        <footer>
+            <div id="text">
+            </div>
+            <div class="footer">
+                <p>@ Tony Tran 2023</p>
+            </div>
+        </footer>
+    </body>
 </html>
