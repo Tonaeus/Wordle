@@ -256,6 +256,9 @@ function intialize() {
 			if (!gameOver && row == height) {
 				gameOver = true;
 
+				text.innerHTML = "";
+				text.className = "";
+
 				var lostMessage = document.createElement("p");
 				lostMessage.innerHTML = `You missed the word <b>${uneditedWord}</b> and lost!`;
 
