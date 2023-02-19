@@ -107,15 +107,19 @@ function createBoard() {
 
 // Highlights input tile
 function tileUpdate(move, column) {
-	if (position > 15 || win) {
+	if (win) {
 		return;
 	}
-	let oldTile = document.getElementById(
+	if (position != 16) {
+		let oldTile = document.getElementById(
 		arr[position][0].toString() + "-" + arr[position][1]
-	);
-	oldTile.className = "tile";
+		);
+		oldTile.className = "tile";
+	}
+
 	position += move;
-	if (column != 4) {
+
+	if (position != 16 && column != 4) {
 		let newTile = document.getElementById(
 			arr[position][0].toString() + "-" + arr[position][1]
 		);
