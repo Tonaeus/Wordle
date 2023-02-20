@@ -212,6 +212,14 @@ footer {
 	color: black;
 	background-color: antiquewhite;
 }
+.winMessage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	color: black;
+	background-color: #F8F8F8;
+}
 .lostMessage {
 	display: flex;
 	justify-content: center;

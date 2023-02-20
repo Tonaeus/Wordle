@@ -304,9 +304,13 @@ function update() {
 			document.getElementById("region").innerHTML =
 				'<img src="https://res.cloudinary.com/mkf/image/upload/v1675467141/ENSF-381/labs/congrats_fkscna.gif" alt="ALTERNATE_TEXT"></img>';
 
-			document.getElementById("text");
 			text.innerHTML = "";
 			text.className = "";
+
+			var winMessage = document.createElement("p");
+			winMessage.innerHTML = `You guessed the word <b>${uneditedWord}</b> correctly!`;
+			document.getElementById("text").appendChild(winMessage);
+			document.getElementById("text").classList.add("winMessage");
 
 			win = true;
 		}
