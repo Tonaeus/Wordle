@@ -11,8 +11,6 @@ var gameOver = false;
 var win = false;
 
 // Fetched words and hints
-var json = {};
-var item = "";
 var word = "TONY";
 var hint = "Tony";
 var uneditedWord = "Tony";
@@ -60,33 +58,34 @@ window.onload = function () {
 	intialize();
 };
 
-// Fetches dictionary
+// Fetches wordle data
 async function fetchWord() {
 	const btn = document.getElementById("btn");
-	btn.innerHTML = `<button id= "load" disabled><span>Loading...</span></button>`;
+	btn.innerHTML = `<button id="load" disabled><span>Loading...</span></button>`;
 
-	const res = await fetch("https://api.masoudkf.com/v1/wordle", {
-		headers: {
-			"x-api-key": "sw0Tr2othT1AyTQtNDUE06LqMckbTiKWaVYhuirv",
-		},
-	});
-	json = await res.json();
-
-	loading = true;
-	btn.innerHTML = `<label id="reset"><span>Start Over</span></label>`;
-
-	guessWord();
-	tileUpdate(0);
+	try {
+		loading = true;
+		btn.innerHTML = `<label id="reset"><span>Start Over</span></label>`;
+		guessWord();
+		// tileUpdate(0);
+	} catch (error) {
+		console.error("Error fetching wordle data:", error);
+		window.alert(
+			"Failed to fetch words. Please check the console for details."
+		);
+	}
 }
 
 // Selects a word and hint pair
 function guessWord() {
-	item = json.dictionary[Number.parseInt(Math.random() * json.dictionary.length)];
+	// Select a random word and hint from wordleData.dictionary
+	const randomIndex = Math.floor(Math.random() * wordleData.dictionary.length);
+	const selectedWord = wordleData.dictionary[randomIndex];
 
-	word = item.word.toUpperCase();
-	hint = item.hint;
+	word = selectedWord.word.toUpperCase();
+	hint = selectedWord.hint;
 
-	uneditedWord = item.word;
+	uneditedWord = selectedWord.word;
 
 	// console.log(word);
 	// console.log(hint);
